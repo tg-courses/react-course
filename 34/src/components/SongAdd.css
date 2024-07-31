@@ -1,0 +1,36 @@
+/* -------------------------------------------------------------------------- */
+/* Add Form                                                                   */
+/* -------------------------------------------------------------------------- */
+
+.add-form {
+    padding: var(--size-2) var(--size-4);
+    border-top: 1px solid var(--color-slate-400);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: var(--size-4);
+    margin-top: -1px;
+}
+
+.add-form-button {
+    width: 6rem;
+    height: 100%;
+    justify-content: center;
+}
+
+.add-form-info,
+.add-form-error {
+    padding: var(--size-2) var(--size-4);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
+}
+
+.add-form-info {
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-500);
+}
+
+.add-form-error {
+    background-color: var(--color-rose-50);
+    color: var(--color-rose-600);
+}
