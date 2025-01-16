@@ -99,7 +99,10 @@ export default function List({ songs, onDelete, onMove, onEdit }) {
                     ) : (
                         <button
                             onClick={() =>
-                                setActiveSongs([...activeSongs, song])
+                                setActiveSongs((activeSongs) => [
+                                    ...activeSongs,
+                                    song,
+                                ])
                             }
                             className="button item-action-button"
                         >
