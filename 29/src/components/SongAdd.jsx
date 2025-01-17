@@ -14,7 +14,7 @@ export default function SongAdd({ onSongCreate }) {
     const abortControllerRef = React.useRef(null);
 
     React.useEffect(() => {
-        return abortControllerRef.current.abort();
+        return () => abortControllerRef.current.abort();
     }, []);
 
     if (abortControllerRef.current === null) {
