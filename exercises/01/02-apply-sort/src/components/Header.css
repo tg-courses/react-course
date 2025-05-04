@@ -1,0 +1,32 @@
+/* -------------------------------------------------------------------------- */
+/* Header                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.header {
+    padding: var(--size-2) var(--size-4);
+    border-bottom: 1px solid var(--color-slate-400);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+    display: flex;
+    gap: var(--size-4);
+    align-items: center;
+}
+
+.header-title {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    gap: var(--size-1);
+    color: var(--color-rose-500);
+}
+
+.header-summary {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
+    color: var(--color-slate-500);
+    text-align: right;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
