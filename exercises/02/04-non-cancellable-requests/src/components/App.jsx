@@ -124,7 +124,8 @@ export default function App() {
             {
                 method: "PATCH",
                 body: JSON.stringify({ id: song.id, move: direction }),
-            }
+            },
+            { cancellable: false }
         );
     }
 

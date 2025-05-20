@@ -33,9 +33,7 @@ export default function App() {
         clearRequestStatus: clearEditRequestStatus,
     } = useMultiFetch();
 
-    const {
-        makeRequest: makeMoveRequest,
-    } = useMultiFetch();
+    const { makeRequest: makeMoveRequest } = useMultiFetch();
 
     React.useEffect(makeListRequest, []);
 

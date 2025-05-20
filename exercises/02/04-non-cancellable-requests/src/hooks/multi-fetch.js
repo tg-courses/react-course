@@ -4,8 +4,9 @@ export default function useMultiFetch() {
     const [requestStatus, setRequestStatus] = React.useState({});
 
     const abortControllerRefs = React.useRef({});
+    const optionsByName = React.useRef({});
 
-    function makeRequest(name, url, requestParams) {
+    function makeRequest(name, url, requestParams, options) {
         if (abortControllerRefs.current[name]) {
             return;
         }
@@ -13,7 +14,9 @@ export default function useMultiFetch() {
         const abortController = new AbortController();
         abortControllerRefs.current[name] = abortController;
 
-        const options = {
+        optionsByName[name] = options;
+
+        const init = {
             signal: abortController.signal,
             ...requestParams,
         };
@@ -23,7 +26,7 @@ export default function useMultiFetch() {
             [name]: { type: "PENDING" },
         }));
 
-        fetch(url, options)
+        fetch(url, init)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -53,6 +56,11 @@ export default function useMultiFetch() {
     }
 
     function cancelRequest(name) {
+        const cancellable = optionsByName[name]?.cancellable ?? true;
+        if (!cancellable) {
+            return;
+        }
+
         if (abortControllerRefs.current && abortControllerRefs.current[name]) {
             abortControllerRefs.current[name].abort();
             abortControllerRefs.current[name] = null;
